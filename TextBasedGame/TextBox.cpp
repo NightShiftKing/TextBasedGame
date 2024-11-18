@@ -10,6 +10,10 @@ TextBox::TextBox(int size, sf::Color color) {
 
 }
 
+
+
+
+
 // Set the font for the text box
 void TextBox::setFont(sf::Font& font) {
     textbox.setFont(font);

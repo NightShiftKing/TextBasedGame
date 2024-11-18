@@ -14,6 +14,28 @@ int getMaxScreenHeight() {
     return GetSystemMetrics(SM_CYSCREEN);
 }
 
+void wrapText(sf::Text& text, float maxWidth) {
+    std::string wrappedString;
+    std::string currentLine;
+    std::istringstream words(text.getString());
+    std::string word;
+
+    while (words >> word) {
+        sf::Text tempText = text;
+        tempText.setString(currentLine + (currentLine.empty() ? "" : " ") + word);
+
+        if (tempText.getLocalBounds().width > maxWidth) {
+            wrappedString += currentLine + "\n";
+            currentLine = word;
+        }
+        else {
+            currentLine += (currentLine.empty() ? "" : " ") + word;
+        }
+    }
+    wrappedString += currentLine;
+    text.setString(wrappedString);
+}
+
 int main()
 {
 
@@ -26,7 +48,7 @@ int main()
 
     // loads the cool lookin font
     sf::Font Neuropol;
-    Neuropol.loadFromFile("C:\\Users\\NightShiftKing\\dev\\Fonts\\Neuropol.otf");
+    Neuropol.loadFromFile("C:\\Users\\Michael Monreal\\Documents\\Neuropol.otf");
 
  
 
@@ -55,9 +77,10 @@ int main()
     // Narration text that displays at the top
     sf::Text NarraterText;
     NarraterText.setFont(Neuropol);
-    NarraterText.setPosition(0, 0); 
+    NarraterText.setPosition(0, 0);
     NarraterText.setCharacterSize(20);
     NarraterText.setFillColor(sf::Color::White);
+    
     
 
     // start of gameloop
@@ -81,80 +104,12 @@ int main()
 
 
         
+        room.handleRoomNavigation(player.getPlayerRoom(), NarraterText, userText.getUserResponse()); 
+
+
             
-
-
-            switch (room.getRoomNumber()) {
-            case 1:
-                
-                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
-                if (userText.getUserResponse() == "go north") {
-                    room.setRoomNumber(2);
-                }
-                break;
-            case 2:
-                
-                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
-                if (userText.getUserResponse() == "go west") {
-                    room.setRoomNumber(3);
-                }
-                else if (userText.getUserResponse() == "go south") {
-                    room.setRoomNumber(1);
-                }
-                break;
-            case 3:
-                
-                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
-                if (userText.getUserResponse() == "go west") {
-                    room.setRoomNumber(4);
-                }
-                else if (userText.getUserResponse() == "go east") {
-                    room.setRoomNumber(2);
-                }
-                break;
-            case 4:
-                
-                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
-                if (userText.getUserResponse() == "go east") {
-                    room.setRoomNumber(3);
-                }
-                else if (userText.getUserResponse() == "go north") {
-                    room.setRoomNumber(5);
-                }
-                break;
-            case 5:
-                
-                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
-                if (userText.getUserResponse() == "go south") {
-                    room.setRoomNumber(4);
-                }
-                break;
-            case 6:
-                
-                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
-                break;
-            case 7:
-                
-                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
-                break;
-            case 8:
-                
-                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
-                break;
-            case 9:
-                
-                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
-                break;
-            case 10:
-                
-                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
-                break;
-
-            default:
-                break;
-            }
         
-            std::cout << room.getRoomNumber() << std::endl; 
+            wrapText(NarraterText, getMaxScreenWidth()); 
 
 
         // Render Section

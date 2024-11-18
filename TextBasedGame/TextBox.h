@@ -22,6 +22,7 @@ public:
     void typedOn(sf::Event input);
 
     std::string getUserResponse(); 
+    
 
 private:
     sf::Text textbox;

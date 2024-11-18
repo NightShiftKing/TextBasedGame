@@ -1,4 +1,5 @@
 #include "Rooms.h"
+#include <SFML/Graphics/Texture.hpp>
 
 
 	Rooms::Rooms() {
@@ -18,12 +19,67 @@
 		return description; 
 	
 	}
+	int Rooms::handleRoomNavigation(int roomNumber, sf::Text DisplayText, std::string userResponse){
+        switch (roomNumber) {
+        case 1:
+
+            DisplayText.setString(getRoomDescription(roomNumber));
+            if (userResponse == "go north") {
+               return roomNumber = 2;
+            }
+            break;
+        case 2:
+
+            DisplayText.setString(getRoomDescription(roomNumber));
+            if (userResponse == "go west") {
+				return roomNumber = 3;
+            }
+            else if (userResponse == "go south") {
+				return roomNumber = 1;
+            }
+            break;
+        case 3:
+
+            DisplayText.setString(getRoomDescription(roomNumber));
+            if (userResponse == "go west") {
+				return roomNumber = 4;
+            }
+            else if (userResponse == "go east") {
+				return roomNumber = 2;
+            }
+            break;
+        case 4:
+
+            DisplayText.setString(getRoomDescription(roomNumber));
+            if (userResponse == "go east") {
+				return roomNumber = 3;
+            }
+            else if (userResponse == "go north") {
+				return roomNumber = 5;
+            }
+            break;
+        case 5:
+
+            DisplayText.setString(getRoomDescription(roomNumber));
+            if (userResponse == "go south") {
+				return roomNumber = 4;
+            }
+            break;
+       
+
+        default:
+            break;
+        }
+	}
+
+
+
 	std::string Rooms::getRoomDescription(int roomNumber) {
 		if (roomNumber == 1) {
 			description = "A receptionist desk as well as a couch in the corner of the room to act as a waiting area. There is a doorway leading North";
 		}
 		else if (roomNumber == 2) {
-			description = "The office space is very open and has 6 desks in 2 columns and 3 rows. However, it is very dark in the office space with the only lighting coming from one computer monitor by the northwest corner. ";
+			description = "The office space is very open and has 6 desks in 2 columns and 3 rows. However, it is very dark in the office space with the only lighting coming from one computer monitor by the west corner. ";
 		}
 		else if (roomNumber == 3) {
 			description = "The hallway is very dim with the only light sources coming from the office computer and the bottom of the door on the west end. ";

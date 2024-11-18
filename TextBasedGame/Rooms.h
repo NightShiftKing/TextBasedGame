@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include<SFML/Graphics.hpp>
 class Rooms{
 public:
 
@@ -13,7 +14,7 @@ public:
 	int getRoomNumber();
 	void setRoomNumber(int currentRoomNumber);
 	std::string startingMessage(); 
-	bool processInput(const std::string& input); 
+	int handleRoomNavigation(int roomNumber, sf::Text DisplayText, std::string userResponse);
 
 private:
 	int roomNumber;
