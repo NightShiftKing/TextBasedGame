@@ -50,6 +50,7 @@ void TextBox::typedOn(sf::Event input) {
         }
 
 std::string TextBox::getUserResponse(){
+    std::transform(userResponse.begin(), userResponse.end(), userResponse.begin(), ::tolower); 
     return userResponse;
 }
 

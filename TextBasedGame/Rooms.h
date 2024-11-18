@@ -11,13 +11,12 @@ public:
 
 	std::string getRoomDescription(int roomNumber); 
 	 
-	int getRoomNumber();
-	void setRoomNumber(int currentRoomNumber);
-	std::string startingMessage(); 
+
+ 
 	
 
 private:
-	int roomNumber;
+	
 	std::string description; 
 
 

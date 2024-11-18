@@ -48,7 +48,7 @@ int main()
 
     // loads the cool lookin font
     sf::Font Neuropol;
-    Neuropol.loadFromFile("C:\\Users\\797074\\Documents\\Neuropol.otf");
+    Neuropol.loadFromFile("C:\\Users\\797074\\Downloads\\Neuropol\\Neuropol.otf");
 
  
 
@@ -104,6 +104,12 @@ int main()
 
 
         switch (player.getPlayerRoom()) {
+        case 0:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom())); 
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
+                player.setPlayerRoom(1); 
+            }
+            break; 
         case 1:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
@@ -173,7 +179,7 @@ int main()
         }
          
 
-
+         
             
         
             wrapText(NarraterText, getMaxScreenWidth()); 

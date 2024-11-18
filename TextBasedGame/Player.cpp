@@ -4,13 +4,13 @@ Player::Player() {
 	 health = 10;
 	 AttackStrength = 2;
 	 inventory.fill("");
-	 currentRoom = 1; 
+	 currentRoom = 0; 
 
 
 }
 
 void Player::setPlayerRoom(int room) {
-	room = currentRoom; 
+	currentRoom = room; 
 }
 
 int Player::getPlayerRoom() {
