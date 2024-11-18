@@ -28,6 +28,10 @@ std::string TextBox::getText() {
     return text.str();
 }
 
+void TextBox::resetText() {
+    text.str() = ""; 
+}
+
 // Draw the text box to the window
 void TextBox::draw(sf::RenderWindow& window) {
     window.draw(textbox);
@@ -40,6 +44,12 @@ void TextBox::typedOn(sf::Event input) {
             inputLogic(charTyped); 
             }
         }
+
+std::string TextBox::getUserResponse(){
+    return userResponse;
+}
+
+
     
 
 
@@ -52,13 +62,22 @@ void TextBox::inputLogic(int charTyped) {
             deleteLastChar();
         }
     }
+    else if (charTyped == ENTER_KEY) {
+        userResponse = text.str();  
+        text.str(""); 
+    }
     textbox.setString(text.str() + "_");
 }
 
 // Delete the last character from the text box
 void TextBox::deleteLastChar() {
     std::string t = text.str();
+    std::string newT = "";
+    for (int i = 0; i < t.length() - 1; i++) {
+        newT += t[i];
+    }
     text.str("");
-    text << t.substr(0, t.length() - 1); // Use substr for efficiency
+    text << newT;
+
     textbox.setString(text.str());
 }

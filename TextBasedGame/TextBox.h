@@ -16,14 +16,17 @@ public:
     void setFont(sf::Font& font);
     void setPostion(float x, float y);
 
-
+    void resetText();
     std::string getText();
     void draw(sf::RenderWindow& window);
     void typedOn(sf::Event input);
 
+    std::string getUserResponse(); 
+
 private:
     sf::Text textbox;
     std::ostringstream text;
+    std::string userResponse; 
 
 
 

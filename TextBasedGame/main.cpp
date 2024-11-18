@@ -52,7 +52,7 @@ int main()
     sf::Text NarraterText;
     NarraterText.setFont(Neuropol);
     NarraterText.setPosition(0, 0);
-    NarraterText.setString("Hello world");
+    NarraterText.setString("type 'south' then hit 'enter'");
     NarraterText.setCharacterSize(20);
     NarraterText.setFillColor(sf::Color::White);
     
@@ -63,7 +63,7 @@ int main()
         // Event (input) section
         sf::Event event;
         
-
+        std::cout << userText.getText().length() << std::endl; 
 
         while (window.pollEvent(event)) {
             switch (event.type) {
@@ -75,8 +75,10 @@ int main()
                 userText.typedOn(event);
             }
         }
-        if (userText.getText() == "south_") {
-            NarraterText.setString(room.getRoomDescription()); 
+        if (userText.getUserResponse() == "south" && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
+            NarraterText.setString(room.getRoomDescription());
+ 
+
         }
 
 
