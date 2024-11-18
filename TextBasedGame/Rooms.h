@@ -9,8 +9,8 @@ public:
 	void GenerateRoomba();
 	void SpawnFerretRuler();
 
-	std::string getRoomDescription(int roomNumber); 
-	 
+	std::string getRoomDescription(int roomNumber, std::string userResponse);
+	
 
  
 	

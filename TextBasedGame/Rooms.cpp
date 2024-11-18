@@ -20,7 +20,7 @@ Rooms::Rooms() {
 
 
 
-	std::string Rooms::getRoomDescription(int roomNumber) {
+	std::string Rooms::getRoomDescription(int roomNumber, std::string userResponse) {
 		if (roomNumber == 0) {
 			description = "A company has hired you to fix the robots in the factory that have gone haywire. Most of the power in the building has gone out except for a few devices and emergency lights.  Press Enter to continue";
 		}
@@ -29,6 +29,9 @@ Rooms::Rooms() {
 		}
 		else if (roomNumber == 2) {
 			description = "The office space is very open and has 6 desks in 2 columns and 3 rows. However, it is very dark in the office space with the only lighting coming from one computer monitor by the west corner. \n There is a partially open door on the west wall of the office. ";
+			if (userResponse == "investigate computer") {
+				description = description + "\n\n The computer seems to be signed in and leads to the factory building network. From here you might be able to access the robots. "; 
+			}
 		}
 		else if (roomNumber == 3) {
 			description = "The hallway is very dim with the only light sources coming from the office computer and the bottom of the door on the west end. \n There is a shelf along the northern wall that seems to hold many photos of the company's workers.  ";

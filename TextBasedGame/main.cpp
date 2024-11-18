@@ -56,16 +56,16 @@ int main()
 
 
     // what the user types on
-    TextBox userText(15 , sf::Color::White);
+    TextBox userText(25 , sf::Color::White);
     userText.setFont(Neuropol);
-    userText.setPostion(getMaxScreenWidth()/2, getMaxScreenHeight() /2 );
+    userText.setPostion(10, getMaxScreenHeight() /2 + 230 );
 
 
 
     // seperation
     sf::RectangleShape line;
     line.setSize(sf::Vector2f(getMaxScreenWidth(), 10));
-    line.setPosition(0, getMaxScreenHeight() /2 - 10 );
+    line.setPosition(0, getMaxScreenHeight() /2 + 200 );
 
 
     //Rooms test
@@ -77,8 +77,8 @@ int main()
     // Narration text that displays at the top
     sf::Text NarraterText;
     NarraterText.setFont(Neuropol);
-    NarraterText.setPosition(0, 0);
-    NarraterText.setCharacterSize(20);
+    NarraterText.setPosition(10, 0);
+    NarraterText.setCharacterSize(30);
     NarraterText.setFillColor(sf::Color::White);
     
     
@@ -105,21 +105,21 @@ int main()
 
         switch (player.getPlayerRoom()) {
         case 0:
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom())); 
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(),userText.getUserResponse())); 
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
                 player.setPlayerRoom(1); 
             }
             break; 
         case 1:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(), userText.getUserResponse()));
             if (userText.getUserResponse() == "go north") {
                 player.setPlayerRoom(2);
             }
             break;
         case 2:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(), userText.getUserResponse()));
             if (userText.getUserResponse() == "go west") {
                 player.setPlayerRoom(3);
             }
@@ -129,7 +129,7 @@ int main()
             break;
         case 3:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(), userText.getUserResponse()));
             if (userText.getUserResponse() == "go west") {
                 player.setPlayerRoom(4);
             }
@@ -139,7 +139,7 @@ int main()
             break;
         case 4:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(), userText.getUserResponse()));
             if (userText.getUserResponse() == "go east") {
                 player.setPlayerRoom(3);
             }
@@ -149,30 +149,30 @@ int main()
             break;
         case 5:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(), userText.getUserResponse()));
             if (userText.getUserResponse() == "go south") {
                 player.setPlayerRoom(4);
             }
             break;
         case 6:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(), userText.getUserResponse()));
             break;
         case 7:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(), userText.getUserResponse()));
             break;
         case 8:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(), userText.getUserResponse()));
             break;
         case 9:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(), userText.getUserResponse()));
             break;
         case 10:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom(), userText.getUserResponse()));
             break;
         default:
             break;
