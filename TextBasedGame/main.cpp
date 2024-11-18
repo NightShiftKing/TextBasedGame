@@ -3,6 +3,7 @@
 #include "TextBox.h"
 #include<Windows.h>
 #include"Rooms.h"
+#include "Player.h"
 
 
 int getMaxScreenWidth() {
@@ -46,13 +47,15 @@ int main()
 
 
     //Rooms test
-    Rooms room(1); 
+    Rooms room = Rooms();  
+
+    //create player finally
+    Player player = Player(); 
 
     // Narration text that displays at the top
     sf::Text NarraterText;
     NarraterText.setFont(Neuropol);
-    NarraterText.setPosition(0, 0);
-    NarraterText.setString("type 'south' then hit 'enter'");
+    NarraterText.setPosition(0, 0); 
     NarraterText.setCharacterSize(20);
     NarraterText.setFillColor(sf::Color::White);
     
@@ -63,7 +66,6 @@ int main()
         // Event (input) section
         sf::Event event;
         
-        std::cout << userText.getText().length() << std::endl; 
 
         while (window.pollEvent(event)) {
             switch (event.type) {
@@ -74,12 +76,85 @@ int main()
             case sf::Event::TextEntered:
                 userText.typedOn(event);
             }
-        }
-        if (userText.getUserResponse() == "south" && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
-            NarraterText.setString(room.getRoomDescription());
- 
 
         }
+
+
+        
+            
+
+
+            switch (room.getRoomNumber()) {
+            case 1:
+                
+                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
+                if (userText.getUserResponse() == "go north") {
+                    room.setRoomNumber(2);
+                }
+                break;
+            case 2:
+                
+                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
+                if (userText.getUserResponse() == "go west") {
+                    room.setRoomNumber(3);
+                }
+                else if (userText.getUserResponse() == "go south") {
+                    room.setRoomNumber(1);
+                }
+                break;
+            case 3:
+                
+                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
+                if (userText.getUserResponse() == "go west") {
+                    room.setRoomNumber(4);
+                }
+                else if (userText.getUserResponse() == "go east") {
+                    room.setRoomNumber(2);
+                }
+                break;
+            case 4:
+                
+                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
+                if (userText.getUserResponse() == "go east") {
+                    room.setRoomNumber(3);
+                }
+                else if (userText.getUserResponse() == "go north") {
+                    room.setRoomNumber(5);
+                }
+                break;
+            case 5:
+                
+                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
+                if (userText.getUserResponse() == "go south") {
+                    room.setRoomNumber(4);
+                }
+                break;
+            case 6:
+                
+                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
+                break;
+            case 7:
+                
+                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
+                break;
+            case 8:
+                
+                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
+                break;
+            case 9:
+                
+                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
+                break;
+            case 10:
+                
+                NarraterText.setString(room.getRoomDescription(room.getRoomNumber()));
+                break;
+
+            default:
+                break;
+            }
+        
+            std::cout << room.getRoomNumber() << std::endl; 
 
 
         // Render Section
