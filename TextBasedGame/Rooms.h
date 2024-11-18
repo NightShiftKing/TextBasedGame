@@ -14,7 +14,7 @@ public:
 	int getRoomNumber();
 	void setRoomNumber(int currentRoomNumber);
 	std::string startingMessage(); 
-	int handleRoomNavigation(int roomNumber, sf::Text DisplayText, std::string userResponse);
+	
 
 private:
 	int roomNumber;

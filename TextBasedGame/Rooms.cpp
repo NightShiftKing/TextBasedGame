@@ -2,15 +2,15 @@
 #include <SFML/Graphics/Texture.hpp>
 
 
-	Rooms::Rooms() {
-		roomNumber = 1; 
-
-
-		
+Rooms::Rooms() {
+	roomNumber = 1;
 
 
 
-	}
+
+}
+
+	
 
 
 	std::string Rooms::startingMessage() {
@@ -19,58 +19,8 @@
 		return description; 
 	
 	}
-	int Rooms::handleRoomNavigation(int roomNumber, sf::Text DisplayText, std::string userResponse){
-        switch (roomNumber) {
-        case 1:
 
-            DisplayText.setString(getRoomDescription(roomNumber));
-            if (userResponse == "go north") {
-               return roomNumber = 2;
-            }
-            break;
-        case 2:
-
-            DisplayText.setString(getRoomDescription(roomNumber));
-            if (userResponse == "go west") {
-				return roomNumber = 3;
-            }
-            else if (userResponse == "go south") {
-				return roomNumber = 1;
-            }
-            break;
-        case 3:
-
-            DisplayText.setString(getRoomDescription(roomNumber));
-            if (userResponse == "go west") {
-				return roomNumber = 4;
-            }
-            else if (userResponse == "go east") {
-				return roomNumber = 2;
-            }
-            break;
-        case 4:
-
-            DisplayText.setString(getRoomDescription(roomNumber));
-            if (userResponse == "go east") {
-				return roomNumber = 3;
-            }
-            else if (userResponse == "go north") {
-				return roomNumber = 5;
-            }
-            break;
-        case 5:
-
-            DisplayText.setString(getRoomDescription(roomNumber));
-            if (userResponse == "go south") {
-				return roomNumber = 4;
-            }
-            break;
        
-
-        default:
-            break;
-        }
-	}
 
 
 

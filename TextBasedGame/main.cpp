@@ -48,7 +48,7 @@ int main()
 
     // loads the cool lookin font
     sf::Font Neuropol;
-    Neuropol.loadFromFile("C:\\Users\\Michael Monreal\\Documents\\Neuropol.otf");
+    Neuropol.loadFromFile("C:\\Users\\797074\\Documents\\Neuropol.otf");
 
  
 
@@ -103,8 +103,75 @@ int main()
         }
 
 
-        
-        room.handleRoomNavigation(player.getPlayerRoom(), NarraterText, userText.getUserResponse()); 
+        switch (player.getPlayerRoom()) {
+        case 1:
+
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go north") {
+                player.setPlayerRoom(2);
+            }
+            break;
+        case 2:
+
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go west") {
+                player.setPlayerRoom(3);
+            }
+            else if (userText.getUserResponse() == "go south") {
+                player.setPlayerRoom(1);
+            }
+            break;
+        case 3:
+
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go west") {
+                player.setPlayerRoom(4);
+            }
+            else if (userText.getUserResponse() == "go east") {
+                player.setPlayerRoom(2);
+            }
+            break;
+        case 4:
+
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go east") {
+                player.setPlayerRoom(3);
+            }
+            else if (userText.getUserResponse() == "go north") {
+                player.setPlayerRoom(5);
+            }
+            break;
+        case 5:
+
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go south") {
+                player.setPlayerRoom(4);
+            }
+            break;
+        case 6:
+
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            break;
+        case 7:
+
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            break;
+        case 8:
+
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            break;
+        case 9:
+
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            break;
+        case 10:
+
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            break;
+        default:
+            break;
+        }
+         
 
 
             
