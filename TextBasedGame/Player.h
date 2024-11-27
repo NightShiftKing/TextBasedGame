@@ -15,8 +15,8 @@ public:
 	void setAttackStrength(int AttackStrength);
 	int getAttackStrength();
 
-	std::array<std::string, 5> getInventory(); 
-
+	std::string getInventory(); 
+	bool hasItem(std::string item); 
 
 	void addItem(std::string Item);
 	void removeItem(std::string Item);
@@ -27,5 +27,6 @@ private:
 	int health;
 	int AttackStrength;
 	int currentRoom; 
-	std::array<std::string, 5> inventory; 
+	int inventorySize; 
+	std::string inventory[5];  
 };

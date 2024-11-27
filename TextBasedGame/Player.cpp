@@ -3,7 +3,7 @@
 Player::Player() {
 	 health = 10;
 	 AttackStrength = 2;
-	 inventory.fill("");
+	 inventorySize = 5; 
 	 currentRoom = 0; 
 
 
@@ -33,12 +33,19 @@ int Player::getAttackStrength() {
 	return AttackStrength; 
 }
 
-std::array<std::string, 5> Player::getInventory(){
-	return inventory; 
+
+
+bool Player::hasItem(std::string item) {
+	for (int i = 0; i < inventorySize; i++) {
+		if (inventory[i] == item) {
+			return true; // Item found
+		}
+	}
+	return false; // Item not found
 }
 
 void Player::addItem(std::string Item) {
-	for (int i = 0; i < sizeof(inventory); i++) {
+	for (int i = 0; i < inventorySize; i++) {
 		if (inventory[i] == "") {
 			inventory[i] = Item;
 			break; 
@@ -48,7 +55,7 @@ void Player::addItem(std::string Item) {
 }
 
 void Player::removeItem(std::string Item) {
-	for (int i = 0; i < sizeof(inventory); i++) {
+	for (int i = 0; i < inventorySize; i++) {
 		if (inventory[i] == Item) {
 			inventory[i] = "";
 			break; 
