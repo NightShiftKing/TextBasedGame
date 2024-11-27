@@ -176,6 +176,9 @@ int main()
             if (userText.getUserResponse() == "go east") {
                 player.setPlayerRoom(2); 
             }
+            else if (userText.getUserResponse() == "go west") {
+                player.setPlayerRoom(10); 
+            }
             else if ((userText.getUserResponse() == "check shelf" || userText.getUserResponse() == "check the shelf") && !player.hasItem("crown")) {
                 player.setPlayerRoom(7);
             }
@@ -208,7 +211,18 @@ int main()
         case 10:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go east") {
+                player.setPlayerRoom(6); 
+            }
+            else if (userText.getUserResponse() == "go north") {
+                player.setPlayerRoom(11); 
+            }
             break;
+        case 11:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go south") {
+                player.setPlayerRoom(10); 
+            }
         default:
             break;
         }

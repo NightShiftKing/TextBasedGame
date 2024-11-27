@@ -52,6 +52,7 @@ void TextBox::typedOn(sf::Event input) {
 std::string TextBox::getUserResponse(){
     std::transform(userResponse.begin(), userResponse.end(), userResponse.begin(), ::tolower); 
     return userResponse;
+
 }
 
 
@@ -72,6 +73,8 @@ void TextBox::inputLogic(int charTyped) {
         text.str(""); 
     }
     textbox.setString(text.str() + "_");
+
+
 }
 
 // Delete the last character from the text box
