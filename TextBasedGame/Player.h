@@ -3,6 +3,7 @@
 #include<SFML/Graphics.hpp>
 #include<array>
 #include <string>
+#include<iostream>
 
 
 class Player {

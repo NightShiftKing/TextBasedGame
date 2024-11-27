@@ -41,6 +41,7 @@ void Player::addItem(std::string Item) {
 	for (int i = 0; i < sizeof(inventory); i++) {
 		if (inventory[i] == "") {
 			inventory[i] = Item;
+			break; 
 		}
 	}
 
@@ -49,7 +50,8 @@ void Player::addItem(std::string Item) {
 void Player::removeItem(std::string Item) {
 	for (int i = 0; i < sizeof(inventory); i++) {
 		if (inventory[i] == Item) {
-			inventory[i] = ""; 
+			inventory[i] = "";
+			break; 
 		}
 	}
 }
