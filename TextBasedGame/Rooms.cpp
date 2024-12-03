@@ -45,7 +45,7 @@ std::string Rooms::getRoomDescription(int roomNumber) {
 
 
     case 6:
-        description = "you walk into a very dim hallway with the only light sources coming from the office computer and the bottom of a door on the west end. There is a shelf along the northern wall that seems to hold many photos of the company's workers.";
+        description = "you walk into a very dim hallway with the only light sources coming from the office computer and the bottom of a door on the north end. There is a shelf along the western wall that seems to hold many photos of the company's workers.";
         break;
     case 7:
         description = "at the top of the shelf there is a gold crown that has the words 'employee of the month' inscibed on it";
@@ -59,10 +59,10 @@ std::string Rooms::getRoomDescription(int roomNumber) {
 
 
     case 10:
-        description = "In the dimly lit warehouse, worker robots move erratically, their lights flickering in chaos. Conveyor belts run wild, sending products crashing to the floor as the robots, with jerky movements and malfunctioning arms, knock into shelves and scatter materials. Sparks fly from malfunctioning circuits. \n There is a small door on the north side of the warehouse \n The door leading to the hallway is east. ";
+        description = "In the dimly lit warehouse, worker robots move erratically, their lights flickering in chaos. Conveyor belts run wild, sending products crashing to the floor as the robots, with jerky movements and malfunctioning arms, knock into shelves and scatter materials. Sparks fly from malfunctioning circuits. \n There is a small door on the east side of the warehouse \n The door leading to the hallway is south. ";
         break;
     case 11:
-        description = "Tucked behind a door on the north side of the warehouse, is a maintenance room. The space is cramped and cluttered, with shelves stocked full of spare parts, tools, and unopened boxes of equipment. A single overhead light flickers intermittently, casting long, shifting shadows across the room. \n go south to leave ";
+        description = "Tucked behind a door on the east side of the warehouse, is a maintenance room. The space is cramped and cluttered, with shelves stocked full of spare parts, tools, and unopened boxes of equipment. A single overhead light flickers intermittently, casting long, shifting shadows across the room. \n go west to leave ";
         break;
     case 12:
         description = "";
@@ -110,10 +110,4 @@ std::string Rooms::getRoomDescription(int roomNumber) {
 
 	}
 
-	void GenerateRoomba() {
 
-	}
-
-	void SpawnFerretRuler() {
-
-	}

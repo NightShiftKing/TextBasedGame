@@ -6,8 +6,8 @@ public:
 
 	Rooms();
 	void GenerateLoot();
-	void GenerateRoomba();
-	void SpawnFerretRuler();
+
+
 
 	std::string getRoomDescription(int roomNumber);
 	
