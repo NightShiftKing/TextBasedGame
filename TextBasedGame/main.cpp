@@ -109,6 +109,7 @@ int main()
 
         switch (player.getPlayerRoom()) {
         case 0:
+
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom())); 
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
                 player.setPlayerRoom(1); 
@@ -117,7 +118,7 @@ int main()
         case 1:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go north") {
+            if (userText.getUserResponse() == "go north" || userText.getUserResponse() == "north") {
                 player.setPlayerRoom(2);
 
             }
@@ -132,22 +133,22 @@ int main()
                 player.setPlayerRoom(3); 
             }
 
-            else if (userText.getUserResponse() == "go south") {
+            else if (userText.getUserResponse() == "go south" || userText.getUserResponse() == "south") {
                 player.setPlayerRoom(1);
             }
-            else if (userText.getUserResponse() == "go west") {
+            else if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
                 player.setPlayerRoom(6); 
             }
             break;
         case 3:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "take note") {
+            if (userText.getUserResponse() == "take note" || userText.getUserResponse() == "grab note") {
                player.addItem("note");
                player.setPlayerRoom(4);
 
            } 
-            else if(userText.getUserResponse() == "go back") {
+            else if(userText.getUserResponse() == "go back" || userText.getUserResponse() == "back") {
                 player.setPlayerRoom(2); 
             }
 
@@ -156,7 +157,7 @@ int main()
         case 4:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go back") {
+            if (userText.getUserResponse() == "go back" || userText.getUserResponse() == "back") {
                 player.setPlayerRoom(2);
             }
             
@@ -165,7 +166,7 @@ int main()
         case 5:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go back") {
+            if (userText.getUserResponse() == "go back" || userText.getUserResponse() == "back") {
                 player.setPlayerRoom(2);
             }
 
@@ -173,10 +174,10 @@ int main()
         case 6:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go east") {
+            if (userText.getUserResponse() == "go east" || userText.getUserResponse() == "east") {
                 player.setPlayerRoom(2); 
             }
-            else if (userText.getUserResponse() == "go north") {
+            else if (userText.getUserResponse() == "go north" || userText.getUserResponse() == "north") {
                 player.setPlayerRoom(10); 
             }
             else if ((userText.getUserResponse() == "check shelf" || userText.getUserResponse() == "check the shelf") && !player.hasItem("crown")) {
@@ -189,7 +190,7 @@ int main()
         case 7:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "take crown") {
+            if (userText.getUserResponse() == "take crown" || userText.getUserResponse() == "grab crown") {
                 player.addItem("crown");
                 player.setPlayerRoom(8); 
             }
@@ -197,30 +198,30 @@ int main()
         case 8:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go back") {
+            if (userText.getUserResponse() == "go back" || userText.getUserResponse() == "back") {
                 player.setPlayerRoom(6); 
             }
             break;
         case 9:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go back") {
+            if (userText.getUserResponse() == "go back" || userText.getUserResponse() == "back") {
                 player.setPlayerRoom(6);
             }
             break;
         case 10:
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go south") {
+            if (userText.getUserResponse() == "go south" || userText.getUserResponse() == "south") {
                 player.setPlayerRoom(6); 
             }
-            else if (userText.getUserResponse() == "go east") {
+            else if (userText.getUserResponse() == "go east" || userText.getUserResponse() == "east") {
                 player.setPlayerRoom(11); 
             }
             break;
         case 11:
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go west") {
+            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
                 player.setPlayerRoom(10); 
             }
         default:
