@@ -246,27 +246,27 @@ int main(){
                 player.setPlayerRoom(16);
             }
             else if (userText.getUserResponse() == "eye-dee") {
-                player.setPlayerRoom(15); 
+                player.setPlayerRoom(14); 
             }
         case 14:
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
-                player.setPlayerRoom(10);
+            if (userText.getUserResponse() == "go back" || userText.getUserResponse() == "back") {
+                player.setPlayerRoom(11);
             }
         case 15:
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
-                player.setPlayerRoom(10);
+            if (userText.getUserResponse() == "go back" || userText.getUserResponse() == "back") {
+                player.setPlayerRoom(11);
             }
         case 16:
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
-                player.setPlayerRoom(10);
+            if (userText.getUserResponse() == "exit") {
+                player.setPlayerRoom(13);
             }
         case 17:
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
-            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
-                player.setPlayerRoom(10);
+            if (userText.getUserResponse() == "go back" || userText.getUserResponse() == "back") {
+                player.setPlayerRoom(11);
             }
         case 18:
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
