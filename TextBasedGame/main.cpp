@@ -14,6 +14,15 @@ int getMaxScreenHeight() {
     return GetSystemMetrics(SM_CYSCREEN);
 }
 
+bool randomGen(int percent) {
+    int randomNumber = rand() % 100 + 1;
+    if (randomNumber < percent) {
+        return true;
+    }
+    else
+        return false; 
+}
+
 void wrapText(sf::Text& text, float maxWidth) {
     std::string wrappedString;
     std::string currentLine;
@@ -36,9 +45,8 @@ void wrapText(sf::Text& text, float maxWidth) {
     text.setString(wrappedString);
 }
 
-int main()
-{
-
+int main(){
+    srand(time(NULL)); 
  
 
  
@@ -222,7 +230,63 @@ int main()
         case 11:
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
             if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
-                player.setPlayerRoom(10); 
+                player.setPlayerRoom(10);
+            }
+            else if (userText.getUserResponse() == "jack in") {
+                player.setPlayerRoom(12); 
+            }
+        case 12:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "1234") {
+                player.setPlayerRoom(13);
+            }
+        case 13:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "eye-dee" && randomGen(75)) {
+                player.setPlayerRoom(16);
+            }
+            else if (userText.getUserResponse() == "eye-dee") {
+                player.setPlayerRoom(15); 
+            }
+        case 14:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
+                player.setPlayerRoom(10);
+            }
+        case 15:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
+                player.setPlayerRoom(10);
+            }
+        case 16:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
+                player.setPlayerRoom(10);
+            }
+        case 17:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
+                player.setPlayerRoom(10);
+            }
+        case 18:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
+                player.setPlayerRoom(10);
+            }
+        case 19:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
+                player.setPlayerRoom(10);
+            }
+        case 20:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
+                player.setPlayerRoom(10);
+            }
+        case 21:
+            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
+            if (userText.getUserResponse() == "go west" || userText.getUserResponse() == "west") {
+                player.setPlayerRoom(10);
             }
         default:
             break;
