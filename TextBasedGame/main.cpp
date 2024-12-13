@@ -4,7 +4,7 @@
 #include<Windows.h>
 #include"Rooms.h"
 #include "Player.h"
-
+#include "Roomba.h"
 
 int getMaxScreenWidth() {
     return GetSystemMetrics(SM_CXSCREEN);
@@ -56,7 +56,7 @@ int main(){
 
     // loads the cool lookin font
     sf::Font Neuropol;
-    Neuropol.loadFromFile("C:\\Users\\797074\\Downloads\\neuropol\\Neuropol.otf");
+    Neuropol.loadFromFile("Neuropol.otf");
 
  
 
@@ -82,6 +82,9 @@ int main(){
     //create player finally
     Player player = Player(); 
 
+    // creates the roombas
+    Roomba roomba = Roomba(); 
+
     // Narration text that displays at the top
     sf::Text NarraterText;
     NarraterText.setFont(Neuropol);
@@ -92,6 +95,7 @@ int main(){
 
     // player test
     player.addItem("stick"); 
+    player.addItem("wrench"); 
     
     
 
@@ -118,12 +122,12 @@ int main(){
         switch (player.getPlayerRoom()) {
         case 0:
 
-            NarraterText.setString(room.getRoomDescription(player.getPlayerRoom())); 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
-                player.setPlayerRoom(1); 
-            }
+            NarraterText.setString(roomba.battle(player, userText.getUserResponse(), randomGen(50))); 
+            std::cout << roomba.getHealth(); 
             break; 
         case 1:
+            
+           
 
             NarraterText.setString(room.getRoomDescription(player.getPlayerRoom()));
             if (userText.getUserResponse() == "go north" || userText.getUserResponse() == "north") {

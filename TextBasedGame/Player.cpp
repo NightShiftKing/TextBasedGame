@@ -2,7 +2,7 @@
 
 Player::Player() {
 	 health = 10;
-	 AttackStrength = 2;
+	 AttackStrength = 10;
 	 inventorySize = 5; 
 	 currentRoom = 0; 
 

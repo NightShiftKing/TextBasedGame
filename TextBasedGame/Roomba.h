@@ -16,7 +16,7 @@ public:
 	
 	void setLocation(int room);
 	int getLocation();
-	std::string battleDescription(Player p, TextBox userText, bool randomGen);
+	std::string battle(Player p, std::string userText, bool randomGen);
 
 
 
@@ -27,6 +27,7 @@ private:
 	int health;
 	int attackStrength;
 	int location;
+	bool ongoing_battle; 
 
 
 
