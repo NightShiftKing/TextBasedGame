@@ -5,7 +5,7 @@ Roomba::Roomba(){
 	health = 20;
 	attackStrength = 1; 
 	location = 0; 
-
+	
 }
 
 void Roomba::GenerateRoomba(){
@@ -39,35 +39,49 @@ int Roomba::getLocation(){
 	return location;
 }
 
-std::string Roomba::battle(Player p, std::string userText, bool randomGen){
+std::string Roomba::battle(Player p, TextBox userText, bool randomGen){
 	ongoing_battle = true;
 	description = "You encounter a roomba, it bolts right towards you while shooting electricity, what do you do? attack, dodge, run";
 	int option{};
-	if (userText == "attack") {
-		option = 1;
-	}
-	if (userText == "dodge") {
-		option = 2;
-	}
-	if (userText == "run") {
-		option = 3;
-	}
+
+	//std::cout << "in function" << std::endl; 
+	while (p.getHealth() > 0 || health > 0 || ongoing_battle) {
+		
+		std::cout << "player " << p << std::endl;
+
+		if (userText.getUserResponse() == "attack") {
+			option = 1;
+			std::cout << "attack" << std::endl;
+		}
+		if (userText.getUserResponse() == "dodge") {
+			option = 2;
+		}
+		if (userText.getUserResponse() == "run") {
+			option = 3;
+		}
+		else {
+			std::cout << "no answer" << std::endl;
+		}
 
 
 		switch (option) {
 		case 1:
 			if (p.hasItem("wrench")) {
 				description = "the roomba winces as you take a swing at it and deal " + std::to_string(p.getAttackStrength()) + " damage";
-				setHealth(getHealth() - p.getAttackStrength()); 
-				userText = ""; 
-				option = 0; 
-				std::cout << "in loop still" << std::endl; 
+				setHealth(getHealth() - p.getAttackStrength());
+				// needs to have a value to get out of case. 
+				std::cout << "in loop" << std::endl;
+
+
+
 			}
 			else {
 				description = "You go to punch at the roomba however it gives you a painful shock as you hit it. you take " + std::to_string(attackStrength);
 				p.setHealth(p.getHealth() - attackStrength);
+				userText.setUserResponse("potato");
+
 			}
-				
+
 			break;
 		case 2:
 			if (randomGen) {
@@ -79,9 +93,9 @@ std::string Roomba::battle(Player p, std::string userText, bool randomGen){
 			break;
 		case 3:
 			if (randomGen) {
-;
-				
-				
+				;
+
+
 			}
 			else if (!randomGen) {
 				description = " You try to run however you were not fast enough. You take " + std::to_string(attackStrength);
@@ -91,6 +105,7 @@ std::string Roomba::battle(Player p, std::string userText, bool randomGen){
 			break;
 		}
 		return description;
+	}
 	}
 
 

@@ -16,7 +16,7 @@ public:
 	
 	void setLocation(int room);
 	int getLocation();
-	std::string battle(Player p, std::string userText, bool randomGen);
+	std::string battle(Player p, TextBox userText, bool randomGen);
 
 
 

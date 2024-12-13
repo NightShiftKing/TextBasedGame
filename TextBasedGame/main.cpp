@@ -64,13 +64,16 @@ int main(){
 
 
     // what the user types on
-    TextBox userText(25 , sf::Color::White);
+    //TextBox userText = TextBox(25, sf::Color::White);
+    //TextBox userText = TextBox();
+    //TextBox userText(25 , sf::Color::White);
+    TextBox userText(TextBox(25, sf::Color::White));
     userText.setFont(Neuropol);
     userText.setPostion(10, getMaxScreenHeight() /2 + 230 );
 
 
 
-    // seperation
+    // seperation in middle of screen
     sf::RectangleShape line;
     line.setSize(sf::Vector2f(getMaxScreenWidth(), 10));
     line.setPosition(0, getMaxScreenHeight() /2 + 200 );
@@ -122,8 +125,8 @@ int main(){
         switch (player.getPlayerRoom()) {
         case 0:
 
-            NarraterText.setString(roomba.battle(player, userText.getUserResponse(), randomGen(50))); 
-            std::cout << roomba.getHealth(); 
+            NarraterText.setString(roomba.battle(player, userText, randomGen(50)));
+             
             break; 
         case 1:
             

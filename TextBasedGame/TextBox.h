@@ -11,7 +11,9 @@
 class TextBox {
 public:
 
+    TextBox();
     TextBox(int size, sf::Color color);
+    TextBox(const TextBox&);
 
     void setFont(sf::Font& font);
     void setPostion(float x, float y);
@@ -22,12 +24,13 @@ public:
     void typedOn(sf::Event input);
 
     std::string getUserResponse(); 
-    
+    void setUserResponse(std::string); 
 
 private:
     sf::Text textbox;
     std::ostringstream text;
     std::string userResponse; 
+
 
 
 

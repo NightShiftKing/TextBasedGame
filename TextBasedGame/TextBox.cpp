@@ -1,13 +1,22 @@
 #include "TextBox.h"
+#include "iostream"
 
 
 //  constructor
+TextBox::TextBox() {
+    
+}
+
 TextBox::TextBox(int size, sf::Color color) {
     textbox.setCharacterSize(size);
     textbox.setFillColor(color);
-    textbox.setString("_"); 
+    textbox.setString("_");
+    
 
+}
 
+TextBox::TextBox(const TextBox&) {
+   
 }
 
 
@@ -55,8 +64,14 @@ std::string TextBox::getUserResponse(){
 
 }
 
-
+void TextBox::setUserResponse(std::string input){
     
+    userResponse = input;
+    
+}
+
+
+ 
 
 
 // Process typed input
@@ -71,6 +86,7 @@ void TextBox::inputLogic(int charTyped) {
     else if (charTyped == ENTER_KEY) {
         userResponse = text.str();  
         text.str(""); 
+
     }
     textbox.setString(text.str() + "_");
 
